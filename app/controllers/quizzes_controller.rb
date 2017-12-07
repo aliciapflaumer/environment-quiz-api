@@ -21,7 +21,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
 
     if @quiz.save
-      render json: @quiz, status: :created, location: @quiz
+      render json: @quiz, status: :created
     else
       render json: @quiz.errors, status: :unprocessable_entity
     end
@@ -54,6 +54,6 @@ class QuizzesController < ApplicationController
     end
 
     def quiz_params
-      params.require(:quiz).permit(:name)
+      params.require(:quiz).permit(:name, :quiz_id)
     end
 end
