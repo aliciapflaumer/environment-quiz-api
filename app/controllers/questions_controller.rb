@@ -1,10 +1,11 @@
-class QuestionsController < ApplicationController
+class QuestionsController < OpenReadController
   before_action :set_question, only: [:show, :update, :destroy]
 
   # GET /questions
   # GET /questions.json
   def index
     @questions = Question.all
+    # @questions = current_user.questions
 
     render json: @questions
   end
@@ -12,13 +13,14 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-    render json: @question
+    render json: Question.find(params[:id])
   end
 
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
+    # @question = Question.new(question_params)
+    @question = current_user.questions.build(question_params)
 
     if @question.save
       render json: @question, status: :created
@@ -30,7 +32,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
-    @question = Question.find(params[:id])
+    # @question = Question.find(params[:id])
 
     if @question.update(question_params)
       head :no_content
@@ -50,10 +52,11 @@ class QuestionsController < ApplicationController
   private
 
     def set_question
-      @question = Question.find(params[:id])
+      # @question = Question.find(params[:id])
+      @question = current_user.questions.find(params[:id])
     end
 
     def question_params
-      params.require(:question).permit(:title, :question_id)
+      params.require(:question).permit(:title, :answer1, :answer2, :answer3, :answer4, :correct, :quiz_id, :user_id)
     end
 end
