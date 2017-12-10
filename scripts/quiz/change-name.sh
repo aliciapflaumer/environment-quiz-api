@@ -9,7 +9,7 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Content-Type: application/json" \
   --data '{
     "quiz": {
-      "name": "'"${NEWNAME}"'"
+      "title": "'"${TITLE}"'"
     }
   }'
 
