@@ -9,13 +9,13 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Content-Type: application/json" \
   --data '{
     "question": {
-      "title": {{"'"TITLE"'"}},
-      "answer1": {{"'"ANSWER1"'"}},
-      "answer2": {{"'"ANSWER2"'"}},
-      "answer3": {{"'"ANSWER3"'"}},
-      "answer4": {{"'"ANSWER4"'"}},
-      "correct": {{"'"CORRECT"'"}},
-      "quiz_id": {{"'"QUIZ_ID"'"}}
+      "title": {{"'"${TITLE}"'"}},
+      "answer1": {{"'"${ANSWER1}"'"}},
+      "answer2": {{"'"${ANSWER2}"'"}},
+      "answer3": {{"'"${ANSWER3}"'"}},
+      "answer4": {{"'"${ANSWER4}"'"}},
+      "correct": {{"'"${CORRECT}"'"}},
+      "quiz_id": {{"'"${QUIZ_ID}"'"}}
     }
   }'
 
