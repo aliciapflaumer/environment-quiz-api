@@ -54,6 +54,6 @@ class QuizzesController < OpenReadController
     end
 
     def quiz_params
-      params.require(:quiz).permit(:name, :quiz_id)
+      params.require(:quiz).permit(:title, :quiz_id)
     end
 end

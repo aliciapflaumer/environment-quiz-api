@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class QuestionsController < OpenReadController
   before_action :set_question, only: [:show, :update, :destroy]
 
   # GET /questions
