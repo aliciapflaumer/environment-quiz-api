@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210183844) do
+ActiveRecord::Schema.define(version: 20171211005830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 20171210183844) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "quiz_id"
+    t.integer  "user_id"
   end
 
-  add_index "quizzes", ["quiz_id"], name: "index_quizzes_on_quiz_id", using: :btree
+  add_index "quizzes", ["user_id"], name: "index_quizzes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -73,5 +73,5 @@ ActiveRecord::Schema.define(version: 20171210183844) do
   add_foreign_key "items", "lists"
   add_foreign_key "questions", "quizzes"
   add_foreign_key "questions", "users"
-  add_foreign_key "quizzes", "quizzes"
+  add_foreign_key "quizzes", "users"
 end
