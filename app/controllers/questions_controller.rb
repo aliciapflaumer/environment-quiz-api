@@ -1,4 +1,4 @@
-class QuestionsController < OpenReadController
+class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :update, :destroy]
 
   # GET /questions
@@ -18,7 +18,9 @@ class QuestionsController < OpenReadController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
+    # @question = Question.new(question_params)
+
+    @question = current_user.questions.build(question_params)
 
     if @question.save
       render json: @question, status: :created
