@@ -1,5 +1,5 @@
-class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:update, :destroy]
+class QuizzesController < OpenReadController
+  before_action :set_quiz, only: [:show, :update, :destroy]
 
   # GET /quizzes
   # GET /quizzes.json
@@ -13,8 +13,8 @@ class QuizzesController < ApplicationController
   # GET /quizzes/1
   # GET /quizzes/1.json
   def show
-    # render json: @quiz
-    render json: Quiz.find(params[:id])
+    render json: @quiz
+    # render json: Quiz.find(params[:id])
   end
 
   # POST /quizzes
@@ -33,10 +33,11 @@ class QuizzesController < ApplicationController
   # PATCH/PUT /quizzes/1
   # PATCH/PUT /quizzes/1.json
   def update
-    # @quiz = Quiz.find(params[:id])
+    @quiz = Quiz.find(params[:id])
+
     if @quiz.update(quiz_params)
-      render json: @quiz
-      # head :no_content
+      # render json: @quiz
+      head :no_content
     else
       render json: @quiz.errors, status: :unprocessable_entity
     end
@@ -46,14 +47,15 @@ class QuizzesController < ApplicationController
   # DELETE /quizzes/1.json
   def destroy
     @quiz.destroy
-    # head :no_content
+
+    head :no_content
   end
 
   private
 
     def set_quiz
-      # @quiz = Quiz.find(params[:id])
-      @quiz = current_user.quizzes.find(params[:id])
+      @quiz = Quiz.find(params[:id])
+      # @quiz = current_user.quizzes.find(params[:id])
     end
 
     def quiz_params
