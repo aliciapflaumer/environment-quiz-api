@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#TOKEN=BAhJIiU3YzdhMGI4NWNmNTA3YWZjZjFiYjVlMmRhOTU2ZjE5YQY6BkVG--71ec44270c1f355262e137d4cd99a30e1eda9dde
 API="http://localhost:4741"
 URL_PATH="/questions"
 curl "${API}${URL_PATH}" \
