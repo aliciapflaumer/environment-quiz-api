@@ -5,7 +5,7 @@ and/or take a quiz that they or others have created.
 
 ## Idea and planning process to building app
 
-The idea for the app came from wanting to learn how to build a quiz app. 
+The idea for the app came from wanting to learn how to build a quiz app.
 
 ## Technologies Used
 
@@ -13,13 +13,15 @@ html, css, Ember, Ruby on Rails
 
 ## Entity Relationship Diagram (ERD)
 
-User --< Quiz --< Questions
+# User --< Quiz --< Questions
 
 A user `has_many` quizzes
+
 A quiz `belongs_to` user
 
 A quiz `has_many` Questions
-A question belongs_to quiz
+
+A question `belongs_to` quiz
 
 ## API end-points
 
