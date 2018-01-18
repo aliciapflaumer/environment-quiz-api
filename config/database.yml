@@ -1,4 +1,4 @@
-<% project_name = 'listr-api' %>
+<% project_name = 'environment-quiz-api' %>
 
 default: &default
   adapter: postgresql
