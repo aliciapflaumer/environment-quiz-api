@@ -1,14 +1,20 @@
 # frozen_string_literal: true
-lists = {
-  'Whole Foods' => %w(Oranges Kale Coffee Peanut\ Butter\ Puffins),
-  'Amazon' => %w(Batteries Socks Macbook\ Charger),
-  'Play It Again Sports' => %w(Volleyball Skis Poles Ski\ Boots Hockey\ Skates)
-}
 
-lists.each do |title, items|
-  list = List.find_or_create_by title: title
-  items.each do |content|
-    item = { content: content }
-    list.items.create item unless list.items.exists? item
-  end
-end
+# This file should contain all the record creation needed to experiment with
+# your app during development.
+#
+# The data can then be loaded with the rake db:examples (or created alongside
+# the db with db:nuke_pave).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# %w(antony jeff matt jason).each do |name|
+#   email = "#{name}@#{name}.com"
+#   next if User.exists? email: email
+#   User.create!(email: email,
+#                password: 'abc123',
+#                password_confirmation: nil)
+# end
